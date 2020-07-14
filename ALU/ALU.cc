@@ -41,7 +41,11 @@ void ALU::operate()
             case 7:
                 result = data1 ^ data2;
                 break;
-                
+            default : {
+            	cout<<"ALU error : unknown opcode"<<endl;
+            	sc_stop();
+            	exit(-1);
+            }
         }
         
         RESULT.write(result.range(3, 0));
